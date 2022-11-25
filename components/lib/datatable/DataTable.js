@@ -1709,6 +1709,9 @@ export const DataTable = React.forwardRef((props, ref) => {
     };
 
     const data = processedData();
+    if (props.onValueChange) {
+        props.onValueChange(data);
+    }
     const columns = getColumns();
     const totalRecords = getTotalRecords(data);
     const empty = ObjectUtils.isEmpty(data);
